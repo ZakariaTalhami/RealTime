@@ -66,12 +66,12 @@ int main(int argc , char * argv[]){
 
 	/*Waite for the Client to Send Request and Accept when arrives*/
 	/*Create a new socket for the incoming request*/
-	if(newfd = accept(server_fd , (struct sockaddr *) &address , (socklen_t *)&addlen)<0){
+	if((newfd = accept(server_fd , (struct sockaddr *) &address , (socklen_t *)&addlen))<0){
 		printf("Error: at accpet\n");
 		return errno;
 	}
 	printf("Connected\n");
-	while(send(server_fd , cat , strlen(cat) , 0)<=0){
+	while(send(newfd , cat , strlen(cat) , 0)<=0){
 		printf("Error Failed to Write\n");
 		fflush(0);
 	}
