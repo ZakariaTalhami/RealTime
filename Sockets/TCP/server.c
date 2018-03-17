@@ -71,14 +71,12 @@ int main(int argc , char * argv[]){
 		return errno;
 	}
 	printf("Connected\n");
-	/*if(write(server_fd , cat , strlen(cat))>0){
-		printf("Hello\n");
-	}*/
-	while(send(server_fd , cat , strlen(cat) , 0)<0){
-		printf("sssss\n");
+	while(send(server_fd , cat , strlen(cat) , 0)<=0){
+		printf("Error Failed to Write\n");
+		fflush(0);
 	}
-
-	printf("Hi\n");
+	printf("Server Wrote To the Socket\n");
+	fflush(0);
 	while(1);
 	
 

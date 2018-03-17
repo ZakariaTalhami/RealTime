@@ -60,7 +60,8 @@ int main(int argc , char * argv[]){
 		return errno;
 	}
 	printf("Connected to %s\n", argv[1]);
-	read(Client_fd , buf , BUFSIZE);
+	while(read(Client_fd , buf , BUFSIZE) <= 0);
+	printf("Rec: length %d \n", (int)strlen(buf));
 	printf("Rec: %s\n", buf );
 
 	return (EXIT_SUCCESS);
