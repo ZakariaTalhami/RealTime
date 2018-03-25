@@ -10,6 +10,7 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+#include <arpa/inet.h>
 
 /* 
  * File:   client.c
